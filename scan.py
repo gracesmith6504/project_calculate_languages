@@ -14,10 +14,10 @@ if not os.path.exists(folder):
 print("Continuing script!")
 
 
-files = os.listdir(folder)[1:] # gets rid of .py checkpoints
+files = os.listdir(folder)[1:] # gets rid of .ipynb_checkpoints
 files_dict = {files[i]: 0 for i in range(len(files))}
 files_dict
-extensions = [f.split(".")[1] for f in files] #[1] gives us just html,css, extensions
+extensions = [f.split(".")[1] for f in files] # gives us just the extensions eg: html
 extensions_set = list(set(extensions))
 extensions_dict = {extensions_set[i]: 0 for i in
                   range(len(extensions_set))}
@@ -31,7 +31,7 @@ for k in files_dict:
     files_dict[k] = len(read) 
 
 for k in files_dict:
-    #gets ext/ adds all lines to each ext / gets total no.off lines
+    #gets extensions / adds all lines to each extension / gets total no.off lines
     ext_key = k.split(".")[1]
     extensions_dict[ext_key] += files_dict[k]
 total = sum(extensions_dict.values())
